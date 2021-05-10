@@ -16,7 +16,7 @@ function ProductList() {
   useEffect(() => {
     const loadProducts = async () => {
       const { data } = await axios.get(
-        `https://react-api-six.vercel.app/products`
+        `/products`
       )
       setProducts(data)
     }
