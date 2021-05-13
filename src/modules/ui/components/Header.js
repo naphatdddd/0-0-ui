@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link as RouterLink, useHistory } from 'react-router-dom'
 import {
   AppBar,
   Toolbar,
@@ -29,19 +30,27 @@ const useStyles = makeStyles((theme) => ({
 }))
 function Header() {
   const classes = useStyles()
+  const history = useHistory()
+  const navigateToCart = () => history.push('/cart')
   return (
     <>
       <AppBar className={classes.appBar}>
         <Toolbar>
           <Link
-            href="/"
+            component={RouterLink}
+            to="/"
             color="inherit"
             underline="none"
             className={classes.logoLink}
           >
             <img src={logo} alt="Naphat" className={classes.logoImage} />
           </Link>
-          <Link href="/preducts" color="inherit" underline="none">
+          <Link
+            component={RouterLink}
+            to="/products"
+            color="inherit"
+            underline="none"
+          >
             Products
           </Link>
           <div className={classes.spacer}></div>
@@ -49,7 +58,7 @@ function Header() {
             control={<Switch color="secondary" />}
             label="Dark"
           ></FormControlLabel>
-          <IconButton>
+          <IconButton onClick={navigateToCart}>
             <Badge badgeContent={5} color="secondary">
               <ShoppingCart />
             </Badge>

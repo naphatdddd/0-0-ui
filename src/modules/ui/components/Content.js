@@ -1,7 +1,8 @@
 import React from 'react'
 import { Container, Toolbar, Snackbar, Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import ProductList from 'modules/products/components/ProductList'
+import Routes from './Routes'
+
 const useStyles = makeStyles((theme) => ({
   content: {
     padding: theme.spacing(2),
@@ -16,7 +17,7 @@ function Content() {
     <main className={classes.content}>
       <Container maxWidth="lg">
         <Toolbar />
-        <ProductList />
+        <Routes />
         <Snackbar
           open
           message="Helloworld"

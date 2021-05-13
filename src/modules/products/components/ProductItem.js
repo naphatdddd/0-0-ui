@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRouteMatch, useHistory } from 'react-router-dom'
 import {
   Grid,
   Card,
@@ -21,10 +22,13 @@ const useStyles = makeStyles((theme) => ({
 }))
 function ProductItem({ id, name, desc, image, category, price }) {
   const classes = useStyles()
+  const { path } = useRouteMatch()
+  const history = useHistory()
+  const navigateToDetails = () => history.push(`${path}/${id}`)
   return (
     <Grid item xs={12} sm={6} lg={4}>
       <Card>
-        <CardActionArea>
+        <CardActionArea onClick={navigateToDetails}>
           <CardMedia image={image} title={name} className={classes.media} />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
